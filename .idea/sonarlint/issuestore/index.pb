@@ -1,17 +1,11 @@
 
 A
 public/index.html,f/4/f43ecdf8d666ee908aacce037b4cd72159e4741b
-=
-src/index.css,c/5/c5d38a62d1faae90a2acaa34b79a7ef365c917e4
 <
 src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
 :
 
 src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
-;
-src/App.css,a/a/aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
-A
-src/setupTests.js,b/7/b7e8d8f421068b8d51c89805d2035e747be2ff17
 F
 src/reportWebVitals.js,1/c/1ce5e63ae1582ed0b425c46001299a07515efbf9
 F
@@ -34,3 +28,19 @@ _
 -src/components/features/SellingChartWidget.js,7/4/7455a49e283aa05a8f6d039fb00520dd1a05e8cd
 T
 $src/components/features/LoginForm.js,6/c/6ccbd007dda73b9afe7a9a5429091ac653ae955c
+E
+src/styles/theme.scss,8/5/85cdb4d175cbf7a85ff01bb0e0c1e53f7f1ea92c
+F
+src/styles/common.scss,b/c/bc0b5fc8e68892b13cc4c88792b831ca97c7fd50
+B
+src/state/store.js,f/7/f7d4ddba36427469cc93cb9ac24ba179f2550133
+D
+src/state/actions.js,2/c/2cfaa2e27917ea5026618986056e7bb3f2d7711c
+D
+src/state/reducer.js,1/9/1912a3a64f4c4f336ea29d8131139e6b4730f337
+Q
+!src/state/slices/opinionsSlice.js,8/c/8c4718e780097cf58b231e8f6bcf7dc291f94093
+E
+src/pages/Opinions.js,1/3/139fc83ebd97e5da5950178dadb5c5bd532e00a6
+I
+src/styles/dashboard.scss,e/c/ecbd076785a5cdda68fe1c1863b708cd101e5084
