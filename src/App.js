@@ -4,11 +4,16 @@ import LoginPage from "./pages/LoginPage";
 import { Provider } from "react-redux";
 import { store } from "./state/store";
 import Opinions from "./pages/Opinions";
+import ProtectedRoute from "./components/shared/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/login",
@@ -16,7 +21,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/opinions",
-    element: <Opinions />,
+    element: (
+      <ProtectedRoute>
+        <Opinions />
+      </ProtectedRoute>
+    ),
   },
 ]);
 

@@ -44,3 +44,7 @@ E
 src/pages/Opinions.js,1/3/139fc83ebd97e5da5950178dadb5c5bd532e00a6
 I
 src/styles/dashboard.scss,e/c/ecbd076785a5cdda68fe1c1863b708cd101e5084
+M
+src/state/slices/authSlice.js,9/4/941bb4827030ad85b97ed53af507f189b80565dd
+W
+'src/components/shared/ProtectedRoute.js,a/1/a14852299156591c66c47092d78b105b9aea2566

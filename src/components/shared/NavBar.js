@@ -1,7 +1,15 @@
 import { Button, ButtonGroup, Nav, Navbar, NavItem } from "reactstrap";
 import { MoonFill, SunFill } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { logout } from "../../state/slices/authSlice";
 
 function NavBar() {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <Navbar color="primary">
       <Nav className="w-100 justify-content-between">
@@ -22,7 +30,9 @@ function NavBar() {
           </ButtonGroup>
         </NavItem>
         <NavItem>
-          <Button className="button">Wyloguj</Button>
+          <Button className="button" onClick={handleLogout}>
+            Wyloguj
+          </Button>
         </NavItem>
       </Nav>
     </Navbar>
