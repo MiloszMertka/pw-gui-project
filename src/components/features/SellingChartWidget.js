@@ -20,6 +20,7 @@ function SellingChartWidget() {
 
   const dispatch = useDispatch();
   const sellStatistics = useSelector((state) => state.sellStatistics);
+  const account = useSelector((state) => state.auth.activeAccount.internalName);
 
   const [measure, setMeasure] = useState("earnings");
   const [timespan, setTimespan] = useState("today");
@@ -29,11 +30,12 @@ function SellingChartWidget() {
   useEffect(() => {
     dispatch(
       loadStatistics({
+        account,
         measure,
         timespan,
       }),
     );
-  }, [measure, timespan]);
+  }, [measure, timespan, account]);
 
   const data = useMemo(() => {
     const labels =

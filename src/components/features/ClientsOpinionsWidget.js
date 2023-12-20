@@ -1,18 +1,29 @@
 import Widget from "../shared/Widget";
 import { Button, ButtonGroup } from "reactstrap";
-import { useSelector } from "react-redux";
-import { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
+import { loadOpinions } from "../../state/slices/opinionsSlice";
 
 function ClientsOpinionsWidget() {
   const { isDarkMode } = useTheme();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const opinions = useSelector((state) => state.opinions.sortedOpinions);
+  const account = useSelector((state) => state.auth.activeAccount.internalName);
 
   const [showPositiveOpinions, setShowPositiveOpinions] = useState(null);
+
+  useEffect(() => {
+    dispatch(
+      loadOpinions({
+        account,
+      }),
+    );
+  }, [account]);
 
   const lastFiveOpinions = useMemo(() => {
     if (opinions.length === 0) {
