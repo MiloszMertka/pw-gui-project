@@ -3,8 +3,11 @@ import { Button, ButtonGroup } from "reactstrap";
 import { useSelector } from "react-redux";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../contexts/ThemeContext";
 
 function ClientsOpinionsWidget() {
+  const { isDarkMode } = useTheme();
+
   const opinions = useSelector((state) => state.opinions.sortedOpinions);
 
   const [showPositiveOpinions, setShowPositiveOpinions] = useState(null);
@@ -29,6 +32,10 @@ function ClientsOpinionsWidget() {
         return opinions.slice(-5).reverse();
     }
   }, [opinions, showPositiveOpinions]);
+
+  const listCardClass = useMemo(() => {
+    return isDarkMode ? "list-card-dark" : "list-card";
+  }, [isDarkMode]);
 
   return (
     <Widget heading="Opinie Kupujących">
@@ -73,7 +80,7 @@ function ClientsOpinionsWidget() {
           lastFiveOpinions.map((opinion) => (
             <div
               key={opinion.id}
-              className="list-card rounded-3 d-flex align-items-center gap-3 px-3 py-2"
+              className={`${listCardClass} rounded-3 d-flex align-items-center gap-3 px-3 py-2`}
             >
               <p className="my-0 fw-bolder fs-2" style={{ width: 50 }}>
                 {opinion.grade}/5

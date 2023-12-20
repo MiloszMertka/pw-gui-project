@@ -17,3 +17,15 @@ body {
 .list-card {
   background-color: #e9ecef;
 }
+
+.list-card-dark {
+  background-color: #343a40;
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.16) !important;
+}
+
+.shadow-light {
+  box-shadow: 0 0.5rem 2.125rem rgba(92, 92, 92, 0.16) !important;
+}

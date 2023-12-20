@@ -16,6 +16,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 ChartJS.register(
   CategoryScale,
@@ -54,7 +55,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </Provider>
   );
 }

@@ -50,3 +50,7 @@ a
 1src/state/providers/fakeSellStatisticsProvider.js,9/4/941a152fd8a1899fccfe144713b5d146f5fbe56c
 [
 +src/state/providers/fakeOpinionsProvider.js,c/e/ceb051726b76d485142aca7fc65fd70f7962af6f
+L
+src/contexts/ThemeContext.js,2/a/2ad4a1c6f7f861a641e681ce4602fd77f1fab210
+L
+src/contexts/themeContext.js,8/e/8eb7e1df896596c30a89cf1517ae78d8e460017a

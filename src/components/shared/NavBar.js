@@ -2,9 +2,11 @@ import { Button, ButtonGroup, Nav, Navbar, NavItem } from "reactstrap";
 import { MoonFill, SunFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { logout } from "../../state/slices/authSlice";
+import { useTheme } from "../../contexts/ThemeContext";
 
 function NavBar() {
   const dispatch = useDispatch();
+  const { isDarkMode, enableDarkMode, disableDarkMode } = useTheme();
 
   const handleLogout = () => {
     dispatch(logout());
@@ -21,10 +23,18 @@ function NavBar() {
             <Button className="button">ENG</Button>
           </ButtonGroup>
           <ButtonGroup>
-            <Button className="button" active={true}>
+            <Button
+              className="button"
+              active={!isDarkMode}
+              onClick={disableDarkMode}
+            >
               <SunFill width={24} height={24} />
             </Button>
-            <Button className="button">
+            <Button
+              className="button"
+              active={isDarkMode}
+              onClick={enableDarkMode}
+            >
               <MoonFill width={24} height={24} />
             </Button>
           </ButtonGroup>
