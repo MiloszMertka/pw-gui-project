@@ -10,6 +10,10 @@ function ClientsOpinionsWidget() {
   const [showPositiveOpinions, setShowPositiveOpinions] = useState(null);
 
   const lastFiveOpinions = useMemo(() => {
+    if (opinions.length === 0) {
+      return [];
+    }
+
     switch (showPositiveOpinions) {
       case true:
         return opinions
@@ -27,7 +31,7 @@ function ClientsOpinionsWidget() {
   }, [opinions, showPositiveOpinions]);
 
   return (
-    <Widget heading="Opinie kupujących">
+    <Widget heading="Opinie Kupujących">
       <p className="text-center text-body-secondary mb-1">
         Kategoria wyświetlanych opinii:
       </p>
@@ -61,17 +65,23 @@ function ClientsOpinionsWidget() {
         className="d-flex flex-column gap-1 mx-auto w-100"
         style={{ maxWidth: "25rem" }}
       >
-        {lastFiveOpinions.map((opinion) => (
-          <div
-            key={opinion.id}
-            className="list-card rounded-3 d-flex align-items-center gap-3 px-3 py-2"
-          >
-            <p className="my-0 fw-bolder fs-2" style={{ width: 50 }}>
-              {opinion.grade}/5
-            </p>
-            <p className="my-0">{opinion.comment}</p>
-          </div>
-        ))}
+        {lastFiveOpinions.length === 0 ? (
+          <p className="text-center text-body-secondary my-5">
+            Brak opinii do wyświetlenia.
+          </p>
+        ) : (
+          lastFiveOpinions.map((opinion) => (
+            <div
+              key={opinion.id}
+              className="list-card rounded-3 d-flex align-items-center gap-3 px-3 py-2"
+            >
+              <p className="my-0 fw-bolder fs-2" style={{ width: 50 }}>
+                {opinion.grade}/5
+              </p>
+              <p className="my-0">{opinion.comment}</p>
+            </div>
+          ))
+        )}
       </div>
       <Link to="/opinions" className="mx-auto my-4">
         <Button color="primary">Zobacz więcej</Button>

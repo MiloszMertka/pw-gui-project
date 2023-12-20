@@ -34,10 +34,6 @@ F
 src/styles/common.scss,b/c/bc0b5fc8e68892b13cc4c88792b831ca97c7fd50
 B
 src/state/store.js,f/7/f7d4ddba36427469cc93cb9ac24ba179f2550133
-D
-src/state/actions.js,2/c/2cfaa2e27917ea5026618986056e7bb3f2d7711c
-D
-src/state/reducer.js,1/9/1912a3a64f4c4f336ea29d8131139e6b4730f337
 Q
 !src/state/slices/opinionsSlice.js,8/c/8c4718e780097cf58b231e8f6bcf7dc291f94093
 E
@@ -48,3 +44,9 @@ M
 src/state/slices/authSlice.js,9/4/941bb4827030ad85b97ed53af507f189b80565dd
 W
 'src/components/shared/ProtectedRoute.js,a/1/a14852299156591c66c47092d78b105b9aea2566
+W
+'src/state/slices/sellStatisticsSlice.js,a/2/a2cdbac435afe722e00e83983e2f5ec8937731d2
+a
+1src/state/providers/fakeSellStatisticsProvider.js,9/4/941a152fd8a1899fccfe144713b5d146f5fbe56c
+[
++src/state/providers/fakeOpinionsProvider.js,c/e/ceb051726b76d485142aca7fc65fd70f7962af6f
