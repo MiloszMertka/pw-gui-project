@@ -3,13 +3,20 @@ import { MoonFill, SunFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { logout } from "../../state/slices/authSlice";
 import { useTheme } from "../../contexts/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 function NavBar() {
   const dispatch = useDispatch();
   const { isDarkMode, enableDarkMode, disableDarkMode } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const handleLogout = () => {
     dispatch(logout());
+  };
+
+  const handleLanguageChange = (language) => {
+    i18n.changeLanguage(language);
+    localStorage.setItem("language", language);
   };
 
   return (
@@ -17,10 +24,20 @@ function NavBar() {
       <Nav className="w-100 justify-content-between">
         <NavItem className="d-flex gap-4">
           <ButtonGroup>
-            <Button className="button" active={true}>
+            <Button
+              className="button"
+              active={i18n.language === "pl"}
+              onClick={() => handleLanguageChange("pl")}
+            >
               PL
             </Button>
-            <Button className="button">ENG</Button>
+            <Button
+              className="button"
+              active={i18n.language === "en"}
+              onClick={() => handleLanguageChange("en")}
+            >
+              ENG
+            </Button>
           </ButtonGroup>
           <ButtonGroup>
             <Button
@@ -41,7 +58,7 @@ function NavBar() {
         </NavItem>
         <NavItem>
           <Button className="button" onClick={handleLogout}>
-            Wyloguj
+            {t("logout")}
           </Button>
         </NavItem>
       </Nav>

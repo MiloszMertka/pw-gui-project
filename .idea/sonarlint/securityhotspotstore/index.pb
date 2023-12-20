@@ -54,3 +54,7 @@ L
 src/contexts/ThemeContext.js,2/a/2ad4a1c6f7f861a641e681ce4602fd77f1fab210
 L
 src/contexts/themeContext.js,8/e/8eb7e1df896596c30a89cf1517ae78d8e460017a
+O
+src/locales/en/translation.json,9/8/9836be868671a1131c35aceb8e99009163f3a640
+O
+src/locales/pl/translation.json,b/c/bce37f849b9eef76471742a7196522ed56ceb468

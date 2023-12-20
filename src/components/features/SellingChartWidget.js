@@ -4,22 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Bar, Line } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { loadStatistics } from "../../state/slices/sellStatisticsSlice";
-
-const measures = [
-  { label: "Obrót", value: "earnings" },
-  { label: "Liczba sprzedanych sztuk", value: "soldAmount" },
-];
-
-const timespans = [
-  { label: "Dziś", value: "today" },
-  { label: "Obecny tydzień", value: "currentWeek" },
-  { label: "Poprzedni tydzień", value: "previousWeek" },
-];
-
-const chartTypes = [
-  { label: "Wykres liniowy", value: "lineChart" },
-  { label: "Wykres słupkowy", value: "barChart" },
-];
+import { useTranslation } from "react-i18next";
 
 const chartOptions = {
   responsive: true,
@@ -31,6 +16,8 @@ const chartOptions = {
 };
 
 function SellingChartWidget() {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const sellStatistics = useSelector((state) => state.sellStatistics);
 
@@ -49,14 +36,18 @@ function SellingChartWidget() {
   }, [measure, timespan]);
 
   const data = useMemo(() => {
-    const labels = sellStatistics.labels;
+    const labels =
+      timespan === "today"
+        ? sellStatistics.labels
+        : sellStatistics.labels.map((label) => t(label));
     const datasets = showPreviousData
       ? sellStatistics.datasets
       : [sellStatistics.datasets[0]];
 
     const datasetsWithColors = [
       {
-        ...datasets[0],
+        label: t(datasets[0].label),
+        data: datasets[0].data,
         backgroundColor: "rgb(119, 73, 248)",
         borderColor: "rgb(119, 73, 248)",
       },
@@ -64,7 +55,8 @@ function SellingChartWidget() {
 
     if (showPreviousData) {
       datasetsWithColors.push({
-        ...datasets[1],
+        label: t(datasets[1].label),
+        data: datasets[1].data,
         backgroundColor: "rgb(29, 198, 207)",
         borderColor: "rgb(29, 198, 207)",
       });
@@ -76,12 +68,28 @@ function SellingChartWidget() {
     };
   }, [sellStatistics, showPreviousData]);
 
+  const measures = [
+    { label: t("earnings"), value: "earnings" },
+    { label: t("numberOfProductsSold"), value: "soldAmount" },
+  ];
+
+  const timespans = [
+    { label: t("today"), value: "today" },
+    { label: t("currentWeek"), value: "currentWeek" },
+    { label: t("previousWeek"), value: "previousWeek" },
+  ];
+
+  const chartTypes = [
+    { label: t("lineChart"), value: "lineChart" },
+    { label: t("barChart"), value: "barChart" },
+  ];
+
   return (
-    <Widget heading="Wykres Sprzedaży">
+    <Widget heading={t("sellingChart")}>
       <Form className="px-3">
         <FormGroup row>
           <Label htmlFor="measure" sm={4} className="text-body-secondary">
-            Miara:
+            {t("measure")}:
           </Label>
           <Col sm={8}>
             <Input
@@ -102,7 +110,7 @@ function SellingChartWidget() {
         </FormGroup>
         <FormGroup row>
           <Label htmlFor="timespan" sm={4} className="text-body-secondary">
-            Zakres czasu:
+            {t("timespan")}:
           </Label>
           <Col sm={8}>
             <Input
@@ -123,7 +131,7 @@ function SellingChartWidget() {
         </FormGroup>
         <FormGroup row>
           <Label htmlFor="chartType" sm={4} className="text-body-secondary">
-            Rodzaj wykresu:
+            {t("chartType")}:
           </Label>
           <Col sm={8}>
             <Input
@@ -154,7 +162,7 @@ function SellingChartWidget() {
             }
           />
           <Label htmlFor="showPreviousData" check>
-            Pokaż dane z poprzedniego okresu
+            {t("showDataFromPreviousPeriod")}
           </Label>
         </FormGroup>
       </Form>

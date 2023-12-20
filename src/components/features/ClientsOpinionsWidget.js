@@ -4,9 +4,11 @@ import { useSelector } from "react-redux";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 function ClientsOpinionsWidget() {
   const { isDarkMode } = useTheme();
+  const { t } = useTranslation();
 
   const opinions = useSelector((state) => state.opinions.sortedOpinions);
 
@@ -38,9 +40,9 @@ function ClientsOpinionsWidget() {
   }, [isDarkMode]);
 
   return (
-    <Widget heading="Opinie Kupujących">
+    <Widget heading={t("customersOpinions")}>
       <p className="text-center text-body-secondary mb-1">
-        Kategoria wyświetlanych opinii:
+        {t("categoryOfOpinions")}:
       </p>
       <ButtonGroup className="w-100 mx-auto" style={{ maxWidth: "21.625rem" }}>
         <Button
@@ -48,25 +50,25 @@ function ClientsOpinionsWidget() {
           active={showPositiveOpinions === null}
           onClick={() => setShowPositiveOpinions(null)}
         >
-          Wszystkie
+          {t("all")}
         </Button>
         <Button
           color="primary"
           active={showPositiveOpinions === true}
           onClick={() => setShowPositiveOpinions(true)}
         >
-          Pozytywne
+          {t("positive")}
         </Button>
         <Button
           color="primary"
           active={showPositiveOpinions === false}
           onClick={() => setShowPositiveOpinions(false)}
         >
-          Negatywne
+          {t("negative")}
         </Button>
       </ButtonGroup>
       <p className="text-center text-body-secondary mt-5 mb-1">
-        Lista 5 ostatnich opinii:
+        {t("listOfFiveLastOpinions")}:
       </p>
       <div
         className="d-flex flex-column gap-1 mx-auto w-100"
@@ -74,7 +76,7 @@ function ClientsOpinionsWidget() {
       >
         {lastFiveOpinions.length === 0 ? (
           <p className="text-center text-body-secondary my-5">
-            Brak opinii do wyświetlenia.
+            {t("noOpinionsToDisplay")}
           </p>
         ) : (
           lastFiveOpinions.map((opinion) => (
@@ -91,7 +93,7 @@ function ClientsOpinionsWidget() {
         )}
       </div>
       <Link to="/opinions" className="mx-auto my-4">
-        <Button color="primary">Zobacz więcej</Button>
+        <Button color="primary">{t("seeMore")}</Button>
       </Link>
     </Widget>
   );
