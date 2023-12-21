@@ -18,7 +18,7 @@ function OffersRankWidget() {
     dispatch(
       loadOffersRank(),
     );
-  }, []);
+  }, [dispatch]);
 
   const sortedFiveOffers = useMemo(() => {
     if (offers.length === 0) {
@@ -91,7 +91,6 @@ function OffersRankWidget() {
       <p className="text-center text-body-secondary mb-1 mt-4">
         {t("listOf5SortedOffers")}:
       </p>
-
       <div
         className="d-flex flex-column gap-1 mx-auto w-100"
         style={{ maxWidth: "25rem" }}
@@ -109,6 +108,7 @@ function OffersRankWidget() {
             >
               <img
                 src={offer.image}
+                alt=""
                 style={{ height: "3rem", width: "3rem", marginLeft: "-0.5rem", marginRight: "0.5rem" }}
               />
               <div style={{ width: "100%" }}>
@@ -118,7 +118,9 @@ function OffersRankWidget() {
                 >
                   {offer.name}
                 </p>
-                <div style={{ width: "100%", fontSize: "0.7rem", margin: "0rem" }}>
+                <div
+                  style={{ width: "100%", fontSize: "0.7rem", margin: "0rem" }}
+                >
                   <p style={{ marginTop: "-1.2rem" }}>
                     {t("numberOfPiecesSold") + ": " + offer.numberOfPiecesSold}
                   </p>
@@ -136,7 +138,6 @@ function OffersRankWidget() {
           ))
         )}
       </div>
-
     </Widget>
   );
 }

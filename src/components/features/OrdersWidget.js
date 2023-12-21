@@ -1,9 +1,7 @@
 import Widget from "../shared/Widget";
-import { Button } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { loadOrders } from "../../state/slices/ordersSlice";
 
@@ -24,11 +22,11 @@ function OrdersWidget() {
         account,
       }),
     );
-  }, [account]);
+  }, [account, dispatch]);
 
   return (
     <Widget heading={t("orders")}>
-      {(unpaid == 0 && notSent == 0 && returns == 0) ? (
+      {(unpaid === 0 && notSent === 0 && returns === 0) ? (
         <div style={{display: "flex", justifyContent: "center"}}>
           <p className="text-center text-body-secondary mb-1" style={{maxWidth: "28rem"}}>
             {t("ordersEmpty")}

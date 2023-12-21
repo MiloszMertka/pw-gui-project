@@ -3,7 +3,6 @@ import { Button } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { loadQuality } from "../../state/slices/sellQualitySlice";
 
@@ -21,7 +20,7 @@ function SellingQualityWidget() {
         account,
       }),
     );
-  }, [account]);
+  }, [account, dispatch]);
 
   const maxScore = useMemo(() => {
     let sum = 0;
