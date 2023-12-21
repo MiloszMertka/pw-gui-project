@@ -113,18 +113,17 @@ function OffersRankWidget() {
               />
               <div style={{ width: "100%" }}>
                 <p
-                  className="fw-bolder"
-                  style={{ width: "100%", paddingTop: "0.5rem", fontSize: "0.85rem" }}
+                  style={{ width: "100%", paddingTop: "0.5rem", fontSize: "0.85rem", fontWeight: "500" }}
                 >
                   {offer.name}
                 </p>
                 <div
                   style={{ width: "100%", fontSize: "0.7rem", margin: "0rem" }}
                 >
-                  <p style={{ marginTop: "-1.2rem" }}>
+                  <p className="text-body-secondary" style={{ marginTop: "-1.2rem" }}>
                     {t("numberOfPiecesSold") + ": " + offer.numberOfPiecesSold}
                   </p>
-                  <p style={{ marginTop: "-1.2rem", marginBottom: "0.3rem" }}>
+                  <p className="text-body-secondary" style={{ marginTop: "-1.2rem", marginBottom: "0.3rem" }}>
                     {sortingOption === 'mostPurchased' ? (
                       t("turnover") + ": " + offer.turnover
                     ) : (
