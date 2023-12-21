@@ -4,6 +4,8 @@ import LoginPage from "./pages/LoginPage";
 import { Provider } from "react-redux";
 import { store } from "./state/store";
 import Opinions from "./pages/Opinions";
+import SellQuality from "./pages/SellQuality";
+import Orders from "./pages/Orders";
 import ProtectedRoute from "./components/shared/ProtectedRoute";
 import {
   BarElement,
@@ -72,6 +74,23 @@ const router = createBrowserRouter([
         <Opinions />
       </ProtectedRoute>
     ),
+  },
+  {
+    path: "/sell-quality",
+    element: (
+      <ProtectedRoute>
+        <SellQuality />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/orders/:category",
+    element: (
+      <ProtectedRoute>
+        <Orders />
+      </ProtectedRoute>
+    ),
+    
   },
 ]);
 
