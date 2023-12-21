@@ -73,13 +73,13 @@ function SellingQualityWidget() {
             {score}/{maxScore}
           </h1>
           <p className="text-center text-body-secondary mb-1 mt-5">
-            {t("WorstAspects")}:
+            {t("worstAspects")}:
           </p>
           <div style={{ display: "flex", gap: "0.5rem", justifyContent: "center" }}>
             {worstAspects.map((aspect, index) => (
-              <div key={index} style={{ width: "10rem" }}>
+              <div key={index} style={{ width: "12rem" }}>
                 <p className="text-center text-body-secondary mb-1 mt-3" style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-                  {aspect.aspect}
+                  {t("aspect" + aspect.aspect)}
                 </p>
                 <h2 className="text-center text-body-primary red-text mb-1" style={{ fontWeight: "bold" }}>
                   {aspect.grade}/{aspect.maxGrade}

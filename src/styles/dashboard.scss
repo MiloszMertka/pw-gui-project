@@ -4,6 +4,16 @@
   grid-auto-flow: dense;
 }
 
+.dashboard-column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.dashboard-row {
+  display: flex;
+}
+
 @media screen and (max-width: 991px) {
   .dashboard {
     grid-template-columns: 1fr;

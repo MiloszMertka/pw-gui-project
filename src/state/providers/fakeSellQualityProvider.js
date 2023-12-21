@@ -4,11 +4,11 @@ export const fakeSellQuality = {
         sellingAspects: [
             {
                 aspect: "ComplaintsService",
-                grade: 4,
+                grade: 2,
                 maxGrade: 5,
             },
             {
-                aspect: "ResponseTimeToTheQuestion",
+                aspect: "ResponseTime",
                 grade: 5,
                 maxGrade: 5,
             },
@@ -19,12 +19,12 @@ export const fakeSellQuality = {
             },
             {
                 aspect: "CustomerService",
-                grade: 3,
+                grade: 1,
                 maxGrade: 5,
             },
             {
                 aspect: "QuantityOfGoodsSold",
-                grade: 4,
+                grade: 2,
                 maxGrade: 5,
             },
         ],
@@ -34,18 +34,18 @@ export const fakeSellQuality = {
         sellingAspects: [
             {
                 aspect: "ComplaintsService",
-                grade: 3,
-                maxGrade: 5,
-            },
-            {
-                aspect: "ResponseTimeToTheQuestion",
                 grade: 2,
                 maxGrade: 5,
             },
             {
-                aspect: "ReturnsHandling",
-                grade: 4,
+                aspect: "ResponseTime",
+                grade: 1,
                 maxGrade: 5,
+            },
+            {
+                aspect: "ReturnsHandling",
+                grade: 2,
+                maxGrade: 5, 
             },
             {
                 aspect: "CustomerService",
