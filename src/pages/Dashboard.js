@@ -11,12 +11,16 @@ function Dashboard() {
   return (
     <>
       <NavBar />
-      <main className="container gap-5 my-5 dashboard">
-        <ClientsOpinionsWidget />
-        <OffersRankWidget />
-        <OrdersWidget />
-        <SellingQualityWidget />
-        <SellingChartWidget />
+      <main className="container gap-5 my-5 dashboard-row">
+        <div className="gap-5 my-5 dashboard-column">
+          <OrdersWidget />
+          <SellingQualityWidget />
+          <ClientsOpinionsWidget />
+        </div>
+        <div className="gap-5 my-5 dashboard-column">
+            <OffersRankWidget />
+            <SellingChartWidget />
+          </div>
       </main>
     </>
   );
